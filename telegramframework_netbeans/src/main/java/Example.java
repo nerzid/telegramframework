@@ -9,7 +9,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 /*
  * The MIT License
  *
- * Copyright 2016 aliren.
+ * Copyright 2016 nerzid.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,13 +32,15 @@ import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 
 /**
  *
- * @author aliren
+ * @author nerzid
  */
-public class Test {
+public class Example {
     public static void main(String[] args) {
         ApiContextInitializer.init();
         TelegramBotsApi botsapi = new TelegramBotsApi();
+        
         NerzidTelegramBot bot = new NerzidTelegramBot();
+        
         try {
             botsapi.registerBot(bot);
         } catch (TelegramApiRequestException ex) {
