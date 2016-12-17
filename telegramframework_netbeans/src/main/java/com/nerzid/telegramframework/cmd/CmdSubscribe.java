@@ -32,7 +32,7 @@ import com.nerzid.telegramframework.bot.NerzidTelegramBot;
 public final class CmdSubscribe extends Cmd{
 
     @Override
-    protected Response run(long id, NerzidTelegramBot bot){
+    protected Response run(Long id, NerzidTelegramBot bot){
         if (bot.getChatIDs().contains(id)) {
             return new Response(getFailedMessage(), ResponseType.USER, true);
         } else {

@@ -23,9 +23,10 @@
  */
 package com.nerzid.telegramframework.cmd;
 
+import com.nerzid.telegramframework.prerequisite.Prerequisite;
 import com.nerzid.telegramframework.bot.NerzidTelegramBot;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  *
@@ -34,36 +35,37 @@ import java.util.List;
 public abstract class Cmd {
 
     public static ArrayList<Cmd> commands = new ArrayList<>();
-    public List<Cmd> prerequisites = new ArrayList<>();
+    public HashMap<Long, Prerequisite> prerequisites_of_chats = new HashMap<>();
 
     protected String name;
     protected String abbreviation;
     protected String successMessage;
     protected String failedMessage;
 
-    protected Cmd(){
+    protected Cmd() {
         setAbbreviation();
         setName();
         setSuccessMessage();
         setFailedMessage();
     }
-    
+
     /**
      * Call this method to setup commands for your telegram bot
      */
-    public static void init(){
+    public static void init() {
         // Add Commands here
         commands.add(new CmdSubscribe());
     }
 
     /**
-     * This method is the main method of the commands to be able to what they want.
-     * 
+     * This method is the main method of the commands to be able to what they
+     * want.
+     *
      * @param id Chat's id
      * @param bot
      * @return Response
      */
-    protected abstract Response run(long id, NerzidTelegramBot bot);
+    protected abstract Response run(Long id, NerzidTelegramBot bot);
 
     protected String getName() {
         return name;
@@ -81,21 +83,21 @@ public abstract class Cmd {
         return successMessage;
     }
 
-    protected void addPrerequisite(Cmd c) {
-        prerequisites.add(c);
+    protected void addPrerequisite(Long id, Prerequisite prerequisite) {
+        prerequisites_of_chats.put(id, prerequisite);
     }
 
     /**
-     * Call this method to find the command from the given text. This method 
+     * Call this method to find the command from the given text. This method
      * looks for an abbreviation for the first word of the text.
-     * 
+     *
      * @param text The text message of what user send to bot
      * @param id Chat's id
      * @param bot
-     * 
+     *
      * @return Response
      */
-    public static Response findThenRunTheCommand(String text, long id, NerzidTelegramBot bot) {
+    public static Response findThenRunTheCommand(String text, Long id, NerzidTelegramBot bot) {
         if (text.isEmpty() || text == null) {
             return new Response("You have given empty or null text", ResponseType.USER, true);
         }
@@ -108,7 +110,7 @@ public abstract class Cmd {
         }
         return new Response("No command avaliable like " + command, ResponseType.USER, true);
     }
-    
+
     protected abstract void setName();
 
     protected abstract void setAbbreviation();

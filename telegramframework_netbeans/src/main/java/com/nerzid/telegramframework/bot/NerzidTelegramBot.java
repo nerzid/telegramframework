@@ -57,7 +57,7 @@ public class NerzidTelegramBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         try {
             String text = update.getMessage().getText();
-            long id = update.getMessage().getChatId();
+            Long id = update.getMessage().getChatId();
 
             Response response = Cmd.findThenRunTheCommand(text, id, this);
 
@@ -81,7 +81,7 @@ public class NerzidTelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    public void sendMessage(String text, long id) throws TelegramApiException {
+    public void sendMessage(String text, Long id) throws TelegramApiException {
         sendMessage(new SendMessage()
                 .setChatId(id)
                 .setText(text));
