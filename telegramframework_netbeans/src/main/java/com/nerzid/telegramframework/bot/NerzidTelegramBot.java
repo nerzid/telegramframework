@@ -99,12 +99,12 @@ public class NerzidTelegramBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "<put_your_bot_token_here";
+        return "<put_your_bot_token_here>";
     }
 
     @Override
     public String getBotUsername() {
-        return "<put_your_bot_username_here";
+        return "<put_your_bot_username_here>";
     }
 
     public List<Long> getChatIDs() {

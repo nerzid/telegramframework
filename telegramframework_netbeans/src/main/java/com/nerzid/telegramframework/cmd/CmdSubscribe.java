@@ -31,13 +31,6 @@ import com.nerzid.telegramframework.bot.NerzidTelegramBot;
  */
 public final class CmdSubscribe extends Cmd{
 
-    public CmdSubscribe() {
-        setName();
-        setAbbreviation();
-        setSuccessMessage();
-        setFailedMessage();
-    }
-    
     @Override
     protected Response run(long id, NerzidTelegramBot bot){
         if (bot.getChatIDs().contains(id)) {

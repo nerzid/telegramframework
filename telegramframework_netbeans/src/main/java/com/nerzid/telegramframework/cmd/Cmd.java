@@ -41,6 +41,13 @@ public abstract class Cmd {
     protected String successMessage;
     protected String failedMessage;
 
+    protected Cmd(){
+        setAbbreviation();
+        setName();
+        setSuccessMessage();
+        setFailedMessage();
+    }
+    
     /**
      * Call this method to setup commands for your telegram bot
      */
