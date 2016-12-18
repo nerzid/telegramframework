@@ -5,6 +5,30 @@
     <artifactId>telegramframework_netbeans</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>nerzidtelegrambot</name>
+    <description>An improved version of telegram api for java to create command based bots</description>
+    <url>https://github.com/nerzid/telegramframework</url>
+    
+    <licenses>
+        <license>
+            <name>MIT Licence</name>
+            <url>https://github.com/nerzid/telegramframework/blob/master/Licence.md</url>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <name>nerzid</name>
+            <email>nerzid@gmail.com</email>
+        </developer>
+    </developers>
+    
+    <scm>
+        <url>https://github.com/nerzid/telegramframework.git</url>
+        <connection>scm:git:git://github.com/nerzid/telegramframework.git</connection>
+        <developerConnection>scm:git:git://github.com/nerzid/telegramframework.git</developerConnection>
+    </scm>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -28,6 +52,5 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.5</version>
         </dependency>
-
     </dependencies>
 </project>
